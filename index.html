@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Management Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <!-- Header -->
+        <header>
+            <h1>🎓 Student Management Dashboard</h1>
+            <p>Manage student records easily</p>
+        </header>
+
+
+        <!-- Statistics -->
+        <div class="stats">
+
+            <div class="stat-card">
+                <h3>Total Students</h3>
+                <p id="totalStudents">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Male Students</h3>
+                <p id="maleStudents">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Female Students</h3>
+                <p id="femaleStudents">0</p>
+            </div>
+
+        </div>
+
+
+        <!-- Student Form -->
+        <section class="form-section">
+
+            <h2 id="formTitle">Add Student</h2>
+
+            <form id="studentForm">
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Student Name"
+                    required
+                >
+
+                <input
+                    type="number"
+                    id="age"
+                    placeholder="Age"
+                    min="1"
+                    max="100"
+                    required
+                >
+
+                <select id="gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <select id="course" required>
+                    <option value="">Select Course</option>
+                    <option value="B.Tech">B.Tech</option>
+                    <option value="BCA">BCA</option>
+                    <option value="B.Sc">B.Sc</option>
+                    <option value="MCA">MCA</option>
+                    <option value="MBA">MBA</option>
+                </select>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Email Address"
+                    required
+                >
+
+                <button type="submit" id="submitButton">
+                    Add Student
+                </button>
+
+                <button
+                    type="button"
+                    id="cancelButton"
+                    onclick="cancelEdit()"
+                    style="display: none;"
+                >
+                    Cancel
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- Search and Filters -->
+        <section class="controls">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="🔍 Search by name or email..."
+                onkeyup="displayStudents()"
+            >
+
+            <select id="courseFilter" onchange="displayStudents()">
+
+                <option value="All">All Courses</option>
+
+                <option value="B.Tech">B.Tech</option>
+
+                <option value="BCA">BCA</option>
+
+                <option value="B.Sc">B.Sc</option>
+
+                <option value="MCA">MCA</option>
+
+                <option value="MBA">MBA</option>
+
+            </select>
+
+
+            <select id="genderFilter" onchange="displayStudents()">
+
+                <option value="All">All Genders</option>
+
+                <option value="Male">Male</option>
+
+                <option value="Female">Female</option>
+
+                <option value="Other">Other</option>
+
+            </select>
+
+        </section>
+
+
+        <!-- Student Table -->
+        <section class="table-section">
+
+            <h2>Student Records</h2>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>Name</th>
+
+                            <th>Age</th>
+
+                            <th>Gender</th>
+
+                            <th>Course</th>
+
+                            <th>Email</th>
+
+                            <th>Actions</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="studentTableBody">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <p id="noStudents">
+                No students found.
+            </p>
+
+        </section>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
